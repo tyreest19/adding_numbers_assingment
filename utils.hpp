@@ -15,6 +15,8 @@
 
 using namespace std;
 
-int String_To_Int(char *str);
-int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, string prompt, string invalid_input_prompt);
+int String_To_Int(const char *str);
+int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, string prompt, string invalid_input_prompt, int
+               lenght_of_number);
+
 #endif /* utils_hpp */

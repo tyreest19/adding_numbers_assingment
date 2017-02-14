@@ -8,16 +8,18 @@
 
 #include <iostream>
 #include <string>
+#include "utils.hpp"
 
 using namespace std;
 
-const string Maxium_Amount_Of_Numbers = "10";
-const string Minimum_Amount_Of_Numbers = "2";
-const string Maxium_Amount_Of_Digits = "15";
-const string Minimum_Amount_Of_Digits = "1";
+const int MAXIMUM_AMOUNT_OF_NUMBERS = 10;
+const int MINIMUN_AMOUNT_OF_NUMBERS = 2;
+const int MAXIUM_AMOUNT_OF_DIGITS = 15;
+const int MINIMUN_AMOUNT_OF_DIGITS = 1;
 const string AMOUNT_OF_NUMBERS_PROMPT = "How many numbers? -> ";
 const string INPUT_NUMBERS_PROMPT = "Enter number";
-const string INVALID_INPUT_PROMPT = "\n Invalid Input \n";
+const string INVALID_INPUT_PROMPT = "\nInvalid Input \n \n";
+const int MAXIMUM_LENGTH_OF_NUMBER = 15;
 
 struct Number {
     
@@ -27,7 +29,7 @@ struct Number {
 };
 
 int main(int argc, const char * argv[]) {
-    string test = "hey there i am an test";
-    std::cout << "Hello, World!\n";
+    Get_Number(MAXIMUM_AMOUNT_OF_NUMBERS, MINIMUN_AMOUNT_OF_NUMBERS, AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
     return 0;
 }
+
