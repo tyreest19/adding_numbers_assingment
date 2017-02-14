@@ -11,6 +11,13 @@
 #include <string>
 using namespace std;
 
+//============================================================================================
+// Takes user inputted number as a string.
+// Converts string into a int.
+// Also validates the user input.
+// Returns int.
+//============================================================================================
+
 int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, string prompt, string invalid_input_prompt, int
                lenght_of_number)
 {
@@ -55,6 +62,11 @@ int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, stri
     return amount_of_numbers;
 }
 
+//============================================================================================
+// Takes constant char pointer and converts it into a string.
+// If one of the characters are not a digit the function returns -1.
+//============================================================================================
+
 int String_To_Int(const char *str)
 {
     int result = 0;
@@ -73,7 +85,6 @@ int String_To_Int(const char *str)
         {
             return -1;
         }
-        
     }
     
     return result;
