@@ -15,20 +15,20 @@ using namespace std;
 // Takes user inputted number as a string.
 // Converts string into a int.
 // Also validates the user input.
-// Returns int.
+// Returns string.
 //============================================================================================
 
-int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, string prompt, string invalid_input_prompt, int
+string Get_Number(long long int maxium_number, long long int minimum_number, string prompt, string invalid_input_prompt, int
                lenght_of_number)
 {
     string user_input;
-    int amount_of_numbers;
-    int valid_input;
+    long long int user_enter_number;
+    bool valid_input;
     
     do
     {
         user_input = " ";
-        amount_of_numbers = 0;
+        user_enter_number = 0;
         valid_input = true;
         
         cout << prompt;
@@ -36,9 +36,9 @@ int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, stri
         
         const char *user_input_char_pointer = user_input.c_str();
         
-        amount_of_numbers = String_To_Int(user_input_char_pointer);
+        user_enter_number = String_To_Int(user_input_char_pointer);
         
-        if (amount_of_numbers == -1)
+        if (user_enter_number == -1)
         {
             cout << invalid_input_prompt;
             valid_input = false;
@@ -51,7 +51,7 @@ int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, stri
             valid_input = false;
         }
         
-        else if (!(minimum_amount_of_numbers <= amount_of_numbers &&  amount_of_numbers <= maxium_amount_of_numbers))
+        else if (!(minimum_number <= user_enter_number &&  user_enter_number <= maxium_number))
         {
             cout << invalid_input_prompt;
             valid_input = false;
@@ -59,7 +59,7 @@ int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, stri
         
     } while (!valid_input);
     
-    return amount_of_numbers;
+    return user_input;
 }
 
 //============================================================================================
@@ -67,9 +67,9 @@ int Get_Number(int maxium_amount_of_numbers, int minimum_amount_of_numbers, stri
 // If one of the characters are not a digit the function returns -1.
 //============================================================================================
 
-int String_To_Int(const char *str)
+long long int String_To_Int(const char *str)
 {
-    int result = 0;
+    long long int result = 0;
 
     for (int i = 0; str[i] != '\0'; ++i)
     {
