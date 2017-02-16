@@ -15,8 +15,8 @@
 
 using namespace std;
 
-long long int String_To_Int(const char *str);
-string Get_Number(long long int maxium_numbers, long long int minimum_numbers, string prompt, string
+int String_To_Int(const char *str);
+string Get_Number(int maxium_numbers, int minimum_numbers, string prompt, string
                   invalid_input_prompt, int lenght_of_number);
 
 #endif /* utils_hpp */

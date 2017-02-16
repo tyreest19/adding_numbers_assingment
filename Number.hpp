@@ -18,18 +18,17 @@ class Number
 {
     
 public:
-    
-    Number();
-    void set_numeric_representation_of_number(long long int user_enter_number);
+    Number(string user_enter_number);
     void set_string_representation_of_number(string user_enter_number);
-    long long int get_numeric_representation_of_number();
+    void set_digit_array();
     string get_string_representation_of_number();
+    void generate_char_array(string number);
+    char digits_array[15];
     
 private:
     
     string string_representation_of_number;
-    long long int numeric_representation_of_number;
-    const int amount_of_digits; // TODO: FIND AWAY TO GENREATE ARRAY ON THE FLY
+    int amount_of_digits; // TODO: FIND AWAY TO GENREATE ARRAY ON THE FLY
     
 };
 #endif /* Number_hpp */

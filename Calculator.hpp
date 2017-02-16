@@ -17,8 +17,9 @@ class Calculator
     
 public:
     
+    string generate_spacing(string array[], int length_of_array);
     void print_addition(Number array[], int length_of_array);
-    long long int addition_operator(Number array[], int length_of_array);
+    string addition_operator(Number array[], int length_of_array);
     
 };
 

@@ -18,11 +18,11 @@ using namespace std;
 // Returns string.
 //============================================================================================
 
-string Get_Number(long long int maxium_number, long long int minimum_number, string prompt, string invalid_input_prompt, int
+string Get_Number(int maxium_number, int minimum_number, string prompt, string invalid_input_prompt, int
                lenght_of_number)
 {
     string user_input;
-    long long int user_enter_number;
+    int user_enter_number;
     bool valid_input;
     
     do
@@ -67,9 +67,9 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
 // If one of the characters are not a digit the function returns -1.
 //============================================================================================
 
-long long int String_To_Int(const char *str)
+int String_To_Int(const char *str)
 {
-    long long int result = 0;
+    int result = 0;
 
     for (int i = 0; str[i] != '\0'; ++i)
     {
@@ -89,3 +89,4 @@ long long int String_To_Int(const char *str)
     
     return result;
 }
+
