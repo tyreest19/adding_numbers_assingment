@@ -5,7 +5,7 @@
 //  Created by Tyree Stevenson on 2/13/17.
 //  Copyright © 2017 Tyree Stevenson. All rights reserved.
 //
-
+#include "Number.hpp"
 #include "utils.hpp"
 #include <iostream>
 #include <string>
@@ -90,3 +90,23 @@ int String_To_Int(const char *str)
     return result;
 }
 
+//============================================================================================
+// Returns the length of the longest string.
+//============================================================================================
+
+int get_longest_number_length(Number array[], int size_of_array)
+{
+    int longest_string = 0;
+    
+    for (int i = 0; i < size_of_array; i++)
+    {
+        int length_of_current_string = int(array[i].get_string_representation_of_number().length());
+        
+        if (length_of_current_string > longest_string)
+        {
+            longest_string = length_of_current_string;
+        }
+    }
+    
+    return longest_string;
+}

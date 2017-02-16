@@ -5,11 +5,15 @@
 //  Created by Tyree Stevenson on 2/13/17.
 //  Copyright © 2017 Tyree Stevenson. All rights reserved.
 //
+#include <stdio.h>      /* printf, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
 #include <iostream>
 #include <string>
 #include "utils.hpp"
 #include "Number.hpp"
+#include "Calculator.hpp"
 
 using namespace std;
 
@@ -26,9 +30,20 @@ const int MAXIMUM_LENGTH_OF_NUMBER = 15;
 
 int main()
 {
+    srand (time(NULL));
 //    Get_Number(MAXIMUM_AMOUNT_OF_NUMBERS, MINIMUN_AMOUNT_OF_NUMBERS, AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
-    Number number("90");
-    cout << number.get_string_representation_of_number() <<"\n";
+    
+    Number array[15];
+    for (int i = 0; i < 15; i++) {
+        long long int random_number = rand() % 9999999999999999;
+        string tested_number = to_string(random_number);
+        array[i] = {tested_number};
+        cout << array[i].get_string_representation_of_number() << "\n";
+    }
+    
+    Calculator number_cruncher;
+    number_cruncher.print_addition(array, 15);
+    
     return 0;
 }
 

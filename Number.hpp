@@ -18,6 +18,7 @@ class Number
 {
     
 public:
+    Number() { };
     Number(string user_enter_number);
     void set_string_representation_of_number(string user_enter_number);
     void set_digit_array();
