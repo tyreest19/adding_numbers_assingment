@@ -33,16 +33,16 @@ int main()
     srand (time(NULL));
 //    Get_Number(MAXIMUM_AMOUNT_OF_NUMBERS, MINIMUN_AMOUNT_OF_NUMBERS, AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
     
-    Number array[15];
-    for (int i = 0; i < 15; i++) {
-        long long int random_number = rand() % 9999999999999999;
+    Number array[2];
+    for (int i = 0; i < 2; i++) {
+        int random_number = rand() % 5;
         string tested_number = to_string(random_number);
-        array[i] = {tested_number};
-        cout << array[i].get_string_representation_of_number() << "\n";
+        array[i] = {tested_number, 15};
+        cout << "\n";
     }
     
     Calculator number_cruncher;
-    number_cruncher.print_addition(array, 15);
+    cout << "im the addition operator: "<<number_cruncher.addition_operator(array, 2, MAXIUM_AMOUNT_OF_DIGITS) << "\n";
     
     return 0;
 }

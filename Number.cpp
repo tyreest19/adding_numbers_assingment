@@ -35,25 +35,32 @@ string Number:: get_string_representation_of_number()
 
 void Number:: generate_char_array(string number)
 {
-    for (int i = 0; i < number.length(); i++) {
+    for (int i = 0; i < maxium_size; i++)
+    {
         
         if (i < number.length())
         {
-            digits_array[i] = number[i];
+            digits_array[maxium_size - (i + 1)] = number[i];
         }
         
         else
         {
-            digits_array[i] = '0';
+            digits_array[maxium_size - (i + 1)] = '0';
         }
+    }
+    
+    for (int i = 0; i < maxium_size; i++)
+    {
+        cout << digits_array[i];
     }
 }
 
 //============================================================================================
 // Constructs number object.
 //============================================================================================
-Number:: Number(string user_enter_number)
+Number:: Number(string user_enter_number, int maxium_choosen_size)
 {
+    maxium_size = maxium_choosen_size;
     amount_of_digits = int(user_enter_number.length());
     set_string_representation_of_number(user_enter_number);
     generate_char_array(user_enter_number);

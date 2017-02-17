@@ -18,7 +18,7 @@ class Calculator
 public:
     
     void print_addition(Number array[], int length_of_array);
-    string addition_operator(Number array[], int length_of_array);
+    string addition_operator(Number array[], int length_of_array, int maxium_size_of_number);
     
 private:
     
