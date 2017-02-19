@@ -61,7 +61,7 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
     for (int i = 0; i < length_of_array; i++)
     {
         temp = sum;
-        cout << "int value: ";
+        cout << "\ntemp value: ";
         for (int j = 0; j < maxium_size_of_number; j++)
         {
             int digit_by_digit_addition =  (sum[j] - '0') + (array[i].digits_array[j] - '0');
@@ -70,6 +70,8 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
             {
                 long long int carry_over_number = stoll(temp) + digit_by_digit_addition;
                 temp = to_string(carry_over_number);
+                cout << "carry over number: " << carry_over_number << "\n";
+                cout << "temp after to string: " << temp << "\n";
                 temp = string(maxium_size_of_number - temp.length(),'0') + temp;
             }
             
@@ -78,7 +80,7 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
                 temp[j] = digit_by_digit_addition + '0';
             }
             
-            cout << digit_by_digit_addition;
+            cout << "temp is: " <<temp << "\nand the iteration is: " << j + 1 << "\n";
         }
         cout << endl;
         sum = temp;
