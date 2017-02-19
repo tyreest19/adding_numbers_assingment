@@ -17,8 +17,8 @@
 
 using namespace std;
 
-const int MAXIMUM_AMOUNT_OF_NUMBERS = 10;
-const int MINIMUN_AMOUNT_OF_NUMBERS = 2;
+const long long int MAXIMUM_AMOUNT_OF_NUMBERS = 10;
+const long long int MINIMUN_AMOUNT_OF_NUMBERS = 2;
 const int MAXIUM_AMOUNT_OF_DIGITS = 15;
 const int MINIMUN_AMOUNT_OF_DIGITS = 1;
 const string  MAXIMUM_USER_INPUTTED_NUMBER = "999999999999999";
@@ -35,7 +35,7 @@ int main()
     
     Number array[3];
     for (int i = 0; i < 3; i++) {
-        int random_number = rand() % 100;
+        int random_number = rand() % 3;
         string tested_number = to_string(random_number);
         array[i] = {tested_number, 15};
         cout << "\n";
@@ -43,9 +43,6 @@ int main()
     
     Calculator number_cruncher;
     cout << "im the addition operator: "<<number_cruncher.addition_operator(array, 3, MAXIUM_AMOUNT_OF_DIGITS) << "\n";
-//    int digit = 5678;
-//    char last_digit = (digit % 10) + '0';
-//    cout << "last digit: " << last_digit << "\n";
-//    return 0;
+    return 0;
 }
 
