@@ -60,14 +60,25 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
     
     for (int i = 0; i < length_of_array; i++)
     {
-        int carry_over_number = 0;
         temp = sum;
         cout << "int value: ";
         for (int j = 0; j < maxium_size_of_number; j++)
         {
             int digit_by_digit_addition =  (sum[j] - '0') + (array[i].digits_array[j] - '0');
-            temp[j] = digit_by_digit_addition + '0';
-            cout << digit_by_digit_addition; //temp[maxium_size_of_number - (j + 1)];
+            
+            if (digit_by_digit_addition/10 == 1)
+            {
+                long long int carry_over_number = stoll(temp) + digit_by_digit_addition;
+                temp = to_string(carry_over_number);
+                temp = string(maxium_size_of_number - temp.length(),'0') + temp;
+            }
+            
+            else
+            {
+                temp[j] = digit_by_digit_addition + '0';
+            }
+            
+            cout << digit_by_digit_addition;
         }
         cout << endl;
         sum = temp;

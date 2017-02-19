@@ -33,17 +33,19 @@ int main()
     srand (time(NULL));
 //    Get_Number(MAXIMUM_AMOUNT_OF_NUMBERS, MINIMUN_AMOUNT_OF_NUMBERS, AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
     
-    Number array[2];
-    for (int i = 0; i < 2; i++) {
-        int random_number = rand() % 5;
+    Number array[3];
+    for (int i = 0; i < 3; i++) {
+        int random_number = rand() % 100;
         string tested_number = to_string(random_number);
         array[i] = {tested_number, 15};
         cout << "\n";
     }
     
     Calculator number_cruncher;
-    cout << "im the addition operator: "<<number_cruncher.addition_operator(array, 2, MAXIUM_AMOUNT_OF_DIGITS) << "\n";
-    
-    return 0;
+    cout << "im the addition operator: "<<number_cruncher.addition_operator(array, 3, MAXIUM_AMOUNT_OF_DIGITS) << "\n";
+//    int digit = 5678;
+//    char last_digit = (digit % 10) + '0';
+//    cout << "last digit: " << last_digit << "\n";
+//    return 0;
 }
 
