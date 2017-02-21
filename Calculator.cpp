@@ -53,30 +53,22 @@ void Calculator:: print_addition(Number array[], int length_of_array)
 // Adds all the Numbers and returns their value as a long long int.
 //============================================================================================
 
-long long int Calculator:: addition_operator(Number *array, int length_of_array, int maxium_size_of_number)
+string Calculator:: addition_operator(Number *array, int length_of_array, int maxium_size_of_number)
 {
-    long long int sum = 0;
+    string sum(maxium_size_of_number,'0');
+    int carry_out = 0;
     
-    for (int i = 0; i < length_of_array; i++)
+    for (int i = 0; i < maxium_size_of_number; i++)
     {
-        int carry_over_number = 0;
-        long long int user_enter_number = stoll(array[i].digits_array);
+        int digit_by_digit_addition = carry_out;
         
-        while (user_enter_number > 0)
+        for (int j = 0; j < length_of_array; j++)
         {
-            int carry_out_number = (sum/10) + (user_enter_number/10);
-            
-            if (carry_out_number/10 == 0)
-            {
-                sum += user_enter_number % 10;
-                user_enter_number /= 10;
-            }
-            
-            else
-            {
-                
-            }
+            digit_by_digit_addition += (array[j].digits_array[maxium_size_of_number - i] - '0');
         }
+        cout << "digit by digit addition: " << digit_by_digit_addition << "the iteration: "<< i + 1 << "\n";
+        carry_out = digit_by_digit_addition/10;
+        sum[maxium_size_of_number - i] = (digit_by_digit_addition % 10) + '0';
     }
     return sum;
 }
