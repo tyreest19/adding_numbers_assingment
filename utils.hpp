@@ -20,5 +20,4 @@ long long int String_To_Int(const char *str);
 string Get_Number(long long int maxium_numbers, long long int minimum_numbers, string prompt, string
                   invalid_input_prompt, int lenght_of_number);
 int get_longest_number_length(Number array[], int size_of_array);
-int char_to_int(char digit);
 #endif /* utils_hpp */

@@ -22,7 +22,7 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
                lenght_of_number)
 {
     string user_input;
-    int user_enter_number;
+    long long int user_enter_number;
     bool valid_input;
     
     do
@@ -35,7 +35,6 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
         getline(cin, user_input);
         
         const char *user_input_char_pointer = user_input.c_str();
-        
         user_enter_number = String_To_Int(user_input_char_pointer);
         
         if (user_input.length()  > lenght_of_number)
@@ -51,7 +50,7 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
 
         }
         
-        else if (!(minimum_number <= user_enter_number &&  user_enter_number <= maxium_number))
+        else if (!(minimum_number <= user_enter_number  && user_enter_number <= maxium_number))
         {
             cout << invalid_input_prompt;
             valid_input = false;
@@ -80,9 +79,7 @@ long long int String_To_Int(const char *str)
     {
         if ('0' <= str[i] && str[i] <= '9')
         {
-    
             result = result*10 + str[i] - '0';
-            
         }
         
         else
