@@ -69,8 +69,14 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
             cout << "the actual digit is: " << array[j].digits_array[maxium_size_of_number - i]  << endl;
             cout << "digit by digit addition: " << digit_by_digit_addition << "the iteration: "<< j + 1 << "\n";
         }
+        
         carry = digit_by_digit_addition/10;
         sum[maxium_size_of_number - i] = (digit_by_digit_addition % 10) + '0';
+        
+        if (i == 14 && carry != 0)
+        {
+            sum = to_string(carry) + sum;
+        }
     }
     return sum;
 }
