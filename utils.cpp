@@ -71,9 +71,13 @@ long long int String_To_Int(const char *str)
 {
     long long int result = 0;
 
+    if (str[0] == '\0')
+    {
+        return -1;
+    }
+    
     for (int i = 0; str[i] != '\0'; ++i)
     {
-        
         if ('0' <= str[i] && str[i] <= '9')
         {
     

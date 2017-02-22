@@ -57,18 +57,19 @@ void Calculator:: print_addition(Number array[], int length_of_array, string ans
 string Calculator:: addition_operator(Number *array, int length_of_array, int maxium_size_of_number)
 {
     string sum(maxium_size_of_number,'0');
-    int carry_out = 0;
+    int carry = 0;
     
-    for (int i = 0; i < maxium_size_of_number; i++)
+    for (int i = 1; i < maxium_size_of_number; i++)
     {
-        int digit_by_digit_addition = carry_out;
+        int digit_by_digit_addition = carry;
         
         for (int j = 0; j < length_of_array; j++)
         {
-            digit_by_digit_addition += (array[j].digits_array[maxium_size_of_number - i] - '0');
+            digit_by_digit_addition += array[j].digits_array[maxium_size_of_number - i] - 48;
+            cout << "the actual digit is: " << array[j].digits_array[maxium_size_of_number - i]  << endl;
+            cout << "digit by digit addition: " << digit_by_digit_addition << "the iteration: "<< j + 1 << "\n";
         }
-        cout << "digit by digit addition: " << digit_by_digit_addition << "the iteration: "<< i + 1 << "\n";
-        carry_out = digit_by_digit_addition/10;
+        carry = digit_by_digit_addition/10;
         sum[maxium_size_of_number - i] = (digit_by_digit_addition % 10) + '0';
     }
     return sum;
