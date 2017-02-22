@@ -18,7 +18,7 @@ using namespace std;
 // Returns string.
 //============================================================================================
 
-string Get_Number(int maxium_number, int minimum_number, string prompt, string invalid_input_prompt, int
+string Get_Number(long long int maxium_number, long long int minimum_number, string prompt, string invalid_input_prompt, int
                lenght_of_number)
 {
     string user_input;
@@ -38,17 +38,17 @@ string Get_Number(int maxium_number, int minimum_number, string prompt, string i
         
         user_enter_number = String_To_Int(user_input_char_pointer);
         
-        if (user_enter_number == -1)
+        if (user_input.length()  > lenght_of_number)
+        {
+            cout << invalid_input_prompt;
+            valid_input = false;
+        }
+        
+        else if (user_enter_number == -1)
         {
             cout << invalid_input_prompt;
             valid_input = false;
 
-        }
-        
-        else if (user_input.length() > lenght_of_number)
-        {
-            cout << invalid_input_prompt;
-            valid_input = false;
         }
         
         else if (!(minimum_number <= user_enter_number &&  user_enter_number <= maxium_number))

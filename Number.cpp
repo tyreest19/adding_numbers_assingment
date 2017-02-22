@@ -35,7 +35,6 @@ string Number:: get_string_representation_of_number()
 
 void Number:: generate_char_array(string number)
 {
-    cout << "im in the number object: " << number << "\n";
     reverse(number.begin(), number.end());
     for (int i = 0; i < maxium_size; i++)
     {

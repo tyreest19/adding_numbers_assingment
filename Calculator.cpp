@@ -24,7 +24,7 @@ string Calculator:: generate_spacing(int length_of_largest_number, int length_of
 // Print addition design
 //============================================================================================
 
-void Calculator:: print_addition(Number array[], int length_of_array)
+void Calculator:: print_addition(Number array[], int length_of_array, string answer)
 {
     int longest_number = get_longest_number_length(array, length_of_array);
     string preliminary_spaces = "   ";
@@ -47,6 +47,7 @@ void Calculator:: print_addition(Number array[], int length_of_array)
             cout << preliminary_spaces << spaces << array[i].get_string_representation_of_number() << "\n";
         }
     }
+    cout << answer << "\n";
 }
 
 //============================================================================================
