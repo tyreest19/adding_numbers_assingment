@@ -28,7 +28,7 @@ void Calculator:: print_addition(Number array[], int length_of_array, string ans
 {
     int longest_number = get_longest_number_length(array, length_of_array);
     string preliminary_spaces = "   ";
-    string lines((longest_number + 2) - 1, '-');
+    string lines((longest_number + 6) - 1, '-');
     
     cout << "The sum of:  \n \n";
     
@@ -48,7 +48,7 @@ void Calculator:: print_addition(Number array[], int length_of_array, string ans
             cout << preliminary_spaces << spaces << array[i].get_string_representation_of_number() << "\n";
         }
     }
-    cout << answer << "\n";
+    cout << generate_spacing(longest_number, int(answer.length())) << "   " << answer << "\n";
 }
 
 //============================================================================================
@@ -67,8 +67,6 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
         for (int j = 0; j < length_of_array; j++)
         {
             digit_by_digit_addition += array[j].digits_array[maxium_size_of_number - i] - 48;
-            cout << "the actual digit is: " << array[j].digits_array[maxium_size_of_number - i]  << endl;
-            cout << "digit by digit addition: " << digit_by_digit_addition << "the iteration: "<< j + 1 << "\n";
         }
         
         carry = digit_by_digit_addition/10;
@@ -76,7 +74,7 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
     }
     
     sum = "00000" + sum;
-    int counter = 5;
+    int counter = 4;
     int digit_by_digit_addition;
     int second_carry = 0;
     
@@ -94,9 +92,13 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
     return sum;
 }
 
+//============================================================================================
+// Formats the string to appear as a number suitable for human eyes.
+// This is done by getting rid of trailing zeros and adding commas.
+//============================================================================================
+
 string Calculator:: Standardize_String(string sum)
 {
-
     while (sum[0] == '0')
     {
         sum.erase(0,1);
