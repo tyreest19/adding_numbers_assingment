@@ -49,11 +49,6 @@ void Number:: generate_char_array(string number)
             digits_array[maxium_size - (i + 1)] = '0';
         }
     }
-    
-    for (int i = 0; i < maxium_size; i++)
-    {
-        cout << digits_array[i];
-    }
 }
 
 //============================================================================================

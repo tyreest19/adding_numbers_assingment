@@ -36,7 +36,7 @@ int main()
     get_numbers(numbers, amount_of_numbers);
     string sum_after_addition = caluclator.addition_operator(numbers, amount_of_numbers, MAXIUM_AMOUNT_OF_DIGITS);
     caluclator.print_addition(numbers, amount_of_numbers, sum_after_addition);
-
+    
     return 0;
 }
 

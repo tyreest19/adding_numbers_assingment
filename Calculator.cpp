@@ -28,6 +28,7 @@ void Calculator:: print_addition(Number array[], int length_of_array, string ans
 {
     int longest_number = get_longest_number_length(array, length_of_array);
     string preliminary_spaces = "   ";
+    string lines((longest_number + 2) - 1, '-');
     
     cout << "The sum of:  \n \n";
     
@@ -39,7 +40,7 @@ void Calculator:: print_addition(Number array[], int length_of_array, string ans
         if (i == length_of_array - 1)
         {
             cout  << "+> " << spaces << array[i].get_string_representation_of_number() << "\n";
-            cout << "------------------" << "\n";
+            cout << lines << "\n";
         }
         
         else
@@ -59,7 +60,7 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
     string sum(maxium_size_of_number,'0');
     int carry = 0;
     
-    for (int i = 1; i < maxium_size_of_number; i++)
+    for (int i = 1; i < maxium_size_of_number + 1; i++)
     {
         int digit_by_digit_addition = carry;
         
@@ -72,11 +73,38 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
         
         carry = digit_by_digit_addition/10;
         sum[maxium_size_of_number - i] = (digit_by_digit_addition % 10) + '0';
-        
-        if (i == 14 && carry != 0)
-        {
-            sum = to_string(carry) + sum;
-        }
+    }
+    
+    sum = "00000" + sum;
+    int counter = 5;
+    int digit_by_digit_addition;
+    int second_carry = 0;
+    
+    while (carry > 0 || second_carry > 0)
+    {
+        digit_by_digit_addition = sum[counter] - 48;
+        digit_by_digit_addition += carry + second_carry;
+        second_carry = digit_by_digit_addition/10;
+        sum[counter] =(digit_by_digit_addition % 10) + '0';
+        carry /= 10;
+        counter -= 1;
+    }
+    
+    sum = Standardize_String(sum);
+    return sum;
+}
+
+string Calculator:: Standardize_String(string sum)
+{
+
+    while (sum[0] == '0')
+    {
+        sum.erase(0,1);
+    }
+    
+    for (int i = 3; i < sum.length(); i += 4)
+    {
+        sum.insert(sum.length() - i, 1, ',');
     }
     return sum;
 }

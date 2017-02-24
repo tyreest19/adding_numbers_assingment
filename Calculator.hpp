@@ -20,6 +20,9 @@ public:
     void print_addition(Number array[], int length_of_array, string answer);
     string addition_operator(Number array[], int length_of_array, int maxium_size_of_number);
     
+protected:
+    string Standardize_String(string sum);
+    
 private:
     
     string generate_spacing(int length_of_largest_number, int length_of_array);
