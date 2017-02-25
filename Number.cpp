@@ -56,6 +56,7 @@ void Number:: generate_char_array(string number)
 //============================================================================================
 Number:: Number(string user_enter_number, int maxium_choosen_size)
 {
+    raw_number = user_enter_number;
     maxium_size = maxium_choosen_size;
     amount_of_digits = int(user_enter_number.length());
     set_string_representation_of_number(user_enter_number);

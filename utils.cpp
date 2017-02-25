@@ -18,8 +18,7 @@ using namespace std;
 // Returns string.
 //============================================================================================
 
-string Get_Number(long long int maxium_number, long long int minimum_number, string prompt, string invalid_input_prompt, int
-               lenght_of_number)
+string Get_Number(string prompt, string invalid_input_prompt, int lenght_of_number)
 {
     string user_input;
     long long int user_enter_number;
@@ -37,7 +36,7 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
         const char *user_input_char_pointer = user_input.c_str();
         user_enter_number = String_To_Int(user_input_char_pointer);
         
-        if (user_input.length()  > lenght_of_number)
+        if (user_input.length() > lenght_of_number && user_input.length() > 0)
         {
             cout << invalid_input_prompt;
             valid_input = false;
@@ -50,13 +49,9 @@ string Get_Number(long long int maxium_number, long long int minimum_number, str
 
         }
         
-        else if (!(minimum_number <= user_enter_number  && user_enter_number <= maxium_number))
-        {
-            cout << invalid_input_prompt;
-            valid_input = false;
-        }
-        
     } while (!valid_input);
+    
+    cout << "\n";
     
     return user_input;
 }
@@ -110,4 +105,20 @@ int get_longest_number_length(Number array[], int size_of_array)
     }
     
     return longest_string;
+}
+
+//============================================================================================
+// Returns the length of the longest string.
+//============================================================================================
+
+int pow(int base, int exponent)
+{
+    int result = 1;
+    
+    for (int i = 0; i < exponent; i++)
+    {
+        result *= base;
+    }
+    
+    return result;
 }

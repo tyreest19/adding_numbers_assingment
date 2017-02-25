@@ -26,6 +26,7 @@ public:
     void generate_char_array(string number);
     int maxium_size;
     char digits_array[15];
+    string raw_number;
     
 private:
     
