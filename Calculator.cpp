@@ -83,6 +83,38 @@ string Calculator:: addition_operator(Number *array, int length_of_array, int ma
 }
 
 //============================================================================================
+// Adds all the strings and returns their value as a string.
+//============================================================================================
+
+string Calculator:: addition_operator(string array[], int length_of_array, int maxium_size_of_number)
+{
+    string sum(maxium_size_of_number,'0');
+    int carry = 0;
+    
+    for (int i = 1; i < maxium_size_of_number + 1; i++)
+    {
+        int digit_by_digit_addition = carry;
+        
+        for (int j = 0; j < length_of_array; j++)
+        {
+            digit_by_digit_addition += array[j][maxium_size_of_number - i] - 48;
+        }
+        
+        carry = digit_by_digit_addition/10;
+        sum[maxium_size_of_number - i] = (digit_by_digit_addition % 10) + '0';
+    }
+    
+    if (carry > 0)
+    {
+        sum = remaining_carry(sum, carry);
+    }
+    
+    sum = Standardize_Number(sum);
+    return sum;
+}
+
+
+//============================================================================================
 // Formats the string to appear as a number suitable for human eyes.
 // This is done by getting rid of trailing zeros and adding commas.
 //============================================================================================
@@ -142,32 +174,43 @@ void Calculator:: print_multiplication(Number *array, int length_of_array, strin
 // Multplies Numbers in a number array.
 //============================================================================================
 
-string Calculator:: multiplication_operator(Number array[], int length_of_array, int maxium_size_of_number)
+string Calculator:: multiplication_operator(Number array[], int length_of_array, const int maxium_size_of_number)
 {
     string product(maxium_size_of_number,'0');
     string final_product(maxium_size_of_number,'0');
+    string intermediate_numbers[15];
+    int digit_by_digit_multiplication = 0;
     int carry = 0;
-    Number number_on_top = array[length_of_array - 1];
     Number number_being_multiplied = array[0];
     
     for (int i = 0; i < maxium_size_of_number; i++)
     {
         for (int j = 0; j < maxium_size_of_number; j++)
         {
-            int digit_by_digit_multiplication =  ((number_on_top.digits_array[maxium_size_of_number - (j + 1)]  - 48) * (number_being_multiplied.digits_array[maxium_size_of_number - (i + 1)] - 48));
-            digit_by_digit_multiplication += carry;
-            cout << "digit by digit multply: " <<digit_by_digit_multiplication << endl;
-            carry = digit_by_digit_multiplication/10;
-            product[maxium_size_of_number - (i + 1)] = (digit_by_digit_multiplication % 10) + '0';
+            for (int k = 0; k < length_of_array; k++)
+            {
+                digit_by_digit_multiplication =  ((array[j].digits_array[maxium_size_of_number - (k + 1)]  - 48) * (number_being_multiplied.digits_array[maxium_size_of_number - (i + 1)] - 48));
+                digit_by_digit_multiplication += carry;
+                //cout << "digit by digit multply: " << digit_by_digit_multiplication << endl;
+                carry = digit_by_digit_multiplication/10;
+                //cout << "carry: " << carry << endl;
+                product[maxium_size_of_number - (j + 1)] = (digit_by_digit_multiplication % 10) + '0';
+            }
             cout << "product: " << product << endl;
+            if (carry > 0)
+            {
+                product = remaining_carry(product, carry);
+                
+                if (product.length() < 15)
+                {
+                    product = string(15 - product.length(), '0');
+                }
+            }
+            intermediate_numbers[j] = product;
+            product = string(maxium_size_of_number,'0');
+            digit_by_digit_multiplication = 0;
+            carry = 0;
         }
-        product = " ";
-        
-        if (carry > 0)
-        {
-            product = remaining_carry(product, carry);
-        }
-        
     }
     
     cout << "im the carry: " << carry << endl;
@@ -176,8 +219,12 @@ string Calculator:: multiplication_operator(Number array[], int length_of_array,
     {
         product = remaining_carry(product, carry);
     }
+    for (int i = 0; i < 15; i++)
+    {
+        cout << intermediate_numbers[i] << endl;
+    }
     
-    product = Standardize_Number(product);
+    final_product = addition_operator(intermediate_numbers, 15, 15);
     return product;
 }
 
@@ -202,4 +249,52 @@ string Calculator:: remaining_carry(string string_of_digits, int carry)
         counter -= 1;
     }
     return string_of_digits;
+}
+
+string Calculator:: two_digit_multiplication_operator(Number *array, int length_of_array, const int maxium_size_of_number)
+{
+    string product(maxium_size_of_number,'0');
+    string final_product(maxium_size_of_number,'0');
+    string intermediate_numbers[15];
+    Number number_on_top = array[0];
+    Number number_on_bottom = array[length_of_array - 1];
+    int digit_by_digit_multiplication = 0;
+    int carry = 0;
+    
+    for (int i = 0; i < maxium_size_of_number; i++)
+    {
+        product = product + string(i,'0');
+        for (int j = 0; j < maxium_size_of_number; j++)
+        {
+            digit_by_digit_multiplication =  ((number_on_top.digits_array[maxium_size_of_number - (j + 1)]  - 48) * (number_on_bottom.digits_array[maxium_size_of_number - (i + 1)] - 48));
+            digit_by_digit_multiplication += carry;
+            carry = digit_by_digit_multiplication/10;
+            product[maxium_size_of_number - (j + 1)] = (digit_by_digit_multiplication % 10) + '0';
+        }
+        product = string(29 - product.length(), '0') + product;
+        if (carry > 0)
+        {
+            product = remaining_carry(product, carry);
+            
+        }
+        
+        intermediate_numbers[i] = product;
+        product = string(maxium_size_of_number,'0');
+        carry = 0;
+    }
+    
+    int length_of_longest_number = get_longest_number_length(intermediate_numbers, 15);
+    //add_padding(intermediate_numbers, 15, length_of_longest_number);
+    final_product = addition_operator(intermediate_numbers, 15, 29);
+    return final_product;
+}
+
+void Calculator:: add_padding(string numbers[], int length_of_array,int longest_number)
+{
+    for (int i = 0; i < longest_number; i++)
+    {
+        int amount_of_zeros = int(longest_number - numbers[i].length());
+        numbers[i] = string(amount_of_zeros,'0') + numbers[i];
+        cout << numbers[i] << endl;
+    }
 }

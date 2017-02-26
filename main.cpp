@@ -28,8 +28,18 @@ void get_numbers(Number array_of_numbers[], int amount_of_numbers);
 
 int main()
 {
-    string get_amount_of_numbers = Get_Number(AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
-    int amount_of_numbers = int(String_To_Int(get_amount_of_numbers.c_str()));
+    int amount_of_numbers = 0;
+    do {
+        
+        string get_amount_of_numbers = Get_Number(AMOUNT_OF_NUMBERS_PROMPT, INVALID_INPUT_PROMPT, MAXIMUM_LENGTH_OF_NUMBER);
+        amount_of_numbers = int(String_To_Int(get_amount_of_numbers.c_str()));
+       
+        if (!(2 <= amount_of_numbers && amount_of_numbers <= 10))
+        {
+            cout << INVALID_INPUT_PROMPT;
+        }
+        
+    } while (!(2 <= amount_of_numbers && amount_of_numbers <= 10));
     Number numbers[MAXIMUM_AMOUNT_OF_NUMBERS];
     Calculator caluclator;
     get_numbers(numbers, amount_of_numbers);
@@ -42,9 +52,9 @@ int main()
     
     string sum_after_addition = caluclator.addition_operator(numbers, amount_of_numbers, MAXIUM_AMOUNT_OF_DIGITS);
     caluclator.print_addition(numbers, amount_of_numbers, sum_after_addition);
-    string product = caluclator.multiplication_operator(array_of_multiplies, MAXIMUM_LENGTH_OF_MULTIPLES, MAXIUM_AMOUNT_OF_DIGITS);
-    
-    caluclator.print_multiplication(array_of_multiplies, MAXIMUM_LENGTH_OF_MULTIPLES, product);
+    string product = caluclator.two_digit_multiplication_operator(array_of_multiplies, MAXIMUM_LENGTH_OF_MULTIPLES, MAXIUM_AMOUNT_OF_DIGITS);
+    cout << "\nfinal multiple answer: " << product << endl;
+    //caluclator.print_multiplication(array_of_multiplies, MAXIMUM_LENGTH_OF_MULTIPLES, product);
     return 0;
 }
 

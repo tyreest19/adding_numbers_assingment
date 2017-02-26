@@ -122,3 +122,20 @@ int pow(int base, int exponent)
     
     return result;
 }
+
+int get_longest_number_length(string array[], int size_of_array)
+{
+    int longest_string = 0;
+    
+    for (int i = 0; i < size_of_array; i++)
+    {
+        int length_of_current_string = int(array[i].length());
+        
+        if (length_of_current_string > longest_string)
+        {
+            longest_string = length_of_current_string;
+        }
+    }
+    
+    return longest_string;
+}
