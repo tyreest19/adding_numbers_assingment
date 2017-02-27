@@ -23,7 +23,7 @@ const string INPUT_NUMBERS_PROMPT = "Input number #";
 const string INVALID_INPUT_PROMPT = "\nInvalid Input \n \n";
 const int MAXIMUM_AMOUNT_OF_MULTIPLES = 2;
 
-void get_numbers(Number array_of_numbers[], int amount_of_numbers);
+void Get_Numbers(Number array_of_numbers[], int amount_of_numbers);
 
 int main()
 {
@@ -42,7 +42,7 @@ int main()
     
     Number numbers[MAXIMUM_AMOUNT_OF_NUMBERS];
     Calculator caluclator;
-    get_numbers(numbers, amount_of_numbers);
+    Get_Numbers(numbers, amount_of_numbers);
     
     Number array_of_multiplies[MAXIMUM_AMOUNT_OF_MULTIPLES];
     
@@ -51,12 +51,10 @@ int main()
         array_of_multiplies[i] = numbers[i];
     }
     
-    string sum_after_addition = caluclator.addition_operator(numbers, amount_of_numbers, MAXIMUM_AMOUNT_OF_DIGITS);
-    caluclator.print_addition(numbers, amount_of_numbers, sum_after_addition);
-    string product = caluclator.two_digit_multiplication_operator(array_of_multiplies, MAXIMUM_AMOUNT_OF_MULTIPLES, MAXIMUM_AMOUNT_OF_DIGITS);
-    caluclator.print_multiplication(array_of_multiplies, MAXIMUM_AMOUNT_OF_MULTIPLES, product);
-    cout << "\nfinal multiple answer: " << product << endl;
-    
+    string sum_after_addition = caluclator.Addition_Operator(numbers, amount_of_numbers, MAXIMUM_AMOUNT_OF_DIGITS);
+    caluclator.Print_Addition(numbers, amount_of_numbers, sum_after_addition);
+    string product = caluclator.Two_Number_Multiplication_Operator(array_of_multiplies, MAXIMUM_AMOUNT_OF_MULTIPLES, MAXIMUM_AMOUNT_OF_DIGITS);
+    caluclator.Print_Multiplication(array_of_multiplies, MAXIMUM_AMOUNT_OF_MULTIPLES, product);
     return 0;
 }
 
@@ -64,7 +62,7 @@ int main()
 // Gets user inputted numbers.
 //============================================================================================
 
-void get_numbers(Number array_of_numbers[], int amount_of_numbers)
+void Get_Numbers(Number array_of_numbers[], int amount_of_numbers)
 {
     for (int i = 0; i < amount_of_numbers; i++)
     {

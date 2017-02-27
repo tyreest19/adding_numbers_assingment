@@ -13,13 +13,13 @@
 // Sets the private variable of string_representation_of_number
 //============================================================================================
 
-void  Number:: set_string_representation_of_number(string user_enter_number)
+void  Number:: Set_String_Representation_Of_Number(string user_enter_number)
 {
-    string_representation_of_number = user_enter_number;
+    String_Representation_Of_Number = user_enter_number;
     
-    for (int i = 3; i < string_representation_of_number.length(); i += 4)
+    for (int i = 3; i < String_Representation_Of_Number.length(); i += 4)
     {
-        string_representation_of_number.insert(string_representation_of_number.length() - i, 1, ',');
+        String_Representation_Of_Number.insert(String_Representation_Of_Number.length() - i, 1, ',');
     }
 }
 
@@ -28,12 +28,12 @@ void  Number:: set_string_representation_of_number(string user_enter_number)
 // Gets the private variable of string_representation_of_number
 //============================================================================================
 
-string Number:: get_string_representation_of_number()
+string Number:: Get_String_Representation_Of_Number()
 {
-    return string_representation_of_number;
+    return String_Representation_Of_Number;
 }
 
-void Number:: generate_char_array(string number)
+void Number:: Generate_Char_Array(string number)
 {
     reverse(number.begin(), number.end());
     for (int i = 0; i < maxium_size; i++)
@@ -57,8 +57,20 @@ void Number:: generate_char_array(string number)
 Number:: Number(string user_enter_number, int maxium_choosen_size)
 {
     raw_number = user_enter_number;
+    int counter = 0;
+    
+    while (raw_number[counter] == '0')
+    {
+        raw_number.erase(0,1);
+        counter += 1;
+    }
+    
+    if (raw_number == "")
+    {
+        raw_number = "0";
+    }
     maxium_size = maxium_choosen_size;
-    set_string_representation_of_number(user_enter_number);
-    generate_char_array(user_enter_number);
+    Set_String_Representation_Of_Number(user_enter_number);
+    Generate_Char_Array(user_enter_number);
 }
 

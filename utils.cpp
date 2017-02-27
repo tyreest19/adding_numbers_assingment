@@ -90,13 +90,13 @@ long long int String_To_Int(const char *str)
 // Returns the length of the longest string.
 //============================================================================================
 
-int get_longest_number_length(Number array[], int size_of_array)
+int Get_Longest_Number_Length(Number array[], int size_of_array)
 {
     int longest_string = 0;
     
     for (int i = 0; i < size_of_array; i++)
     {
-        int length_of_current_string = int(array[i].get_string_representation_of_number().length());
+        int length_of_current_string = int(array[i].Get_String_Representation_Of_Number().length());
         
         if (length_of_current_string > longest_string)
         {
@@ -110,20 +110,7 @@ int get_longest_number_length(Number array[], int size_of_array)
 //============================================================================================
 // Returns the length of the longest string.
 //============================================================================================
-
-int pow(int base, int exponent)
-{
-    int result = 1;
-    
-    for (int i = 0; i < exponent; i++)
-    {
-        result *= base;
-    }
-    
-    return result;
-}
-
-int get_longest_number_length(string array[], int size_of_array)
+int Get_Longest_Number_Length(string array[], int size_of_array)
 {
     int longest_string = 0;
     

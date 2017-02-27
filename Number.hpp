@@ -22,16 +22,16 @@ public:
     
     Number() { };
     Number(string user_enter_number, int maxium_choosen_size);
-    void set_string_representation_of_number(string user_enter_number);
-    void set_digit_array();
-    string get_string_representation_of_number();
-    void generate_char_array(string number);
+    void Set_String_Representation_Of_Number(string user_enter_number);
+    void Set_Digit_Array();
+    string Get_String_Representation_Of_Number();
+    void Generate_Char_Array(string number);
     int maxium_size;
     char digits_array[MAXIMUM_LENGTH_OF_NUMBER];
     string raw_number;
     
 private:
-    string string_representation_of_number;
+    string String_Representation_Of_Number;
     
 };
 #endif /* Number_hpp */

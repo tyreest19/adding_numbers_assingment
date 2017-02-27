@@ -18,21 +18,21 @@ class Calculator
     
 public:
     
-    void print_addition(Number array[], int length_of_array, string sum);
-    string addition_operator(Number array[], int length_of_array, int maxium_size_of_number);
-    string addition_operator(string array[], int length_of_array, int maxium_size_of_number);
-    void print_multiplication(Number array[], int length_of_array, string sum);
-    string two_digit_multiplication_operator(Number array[], int length_of_array, const int maxium_size_of_number);
+    void Print_Addition(Number array[], int length_of_array, string sum);
+    string Addition_Operator(Number array[], int length_of_array, int maxium_size_of_number);
+    string Addition_Operator(string array[], int length_of_array, int maxium_size_of_number);
+    void Print_Multiplication(Number array[], int length_of_array, string sum);
+    string Two_Number_Multiplication_Operator(Number array[], int length_of_array, const int maxium_size_of_number);
     
 protected:
-    
-    string Standardize_Number(string sum, bool allow_zeros);
-    string remaining_carry(string string_of_digits, int carry);
+    string Standardize_Number(string sum, bool allows_zero);
+    string Remaining_Carry(string string_of_digits, int carry);
     void Standardize_Intermediate_Steps();
     
 private:
+    
     string intermediate_numbers[MAXIMUM_INTERMEDIATE_STEPS];
-    string generate_spacing(int length_of_largest_number, int length_of_array);
+    string Generate_Spacing(int length_of_largest_number, int length_of_array);
     
 };
 
