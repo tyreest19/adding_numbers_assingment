@@ -181,6 +181,7 @@ void Calculator:: Print_Multiplication(Number *array, int length_of_array, strin
         }
         
     }
+    
     for (int i = 0; i < array[1].raw_number.length(); i++)
     {
         if (i == 0 && intermediate_numbers[i][0] == '0')
@@ -199,9 +200,8 @@ void Calculator:: Print_Multiplication(Number *array, int length_of_array, strin
         
         else if (intermediate_numbers[i][0] == '0')
         {
-            int previous_length = intermediate_numbers[i -1].length() - (intermediate_numbers[i - 1].length()/3);
-            previous_length += 2;
-            intermediate_numbers[i] = intermediate_numbers[i].substr(0,previous_length);
+            int previous_length = intermediate_numbers[i-1].length() + 1;
+            intermediate_numbers[i] = string(previous_length - (previous_length/3) + 3, '0');
             intermediate_numbers[i] = Standardize_Number(intermediate_numbers[i], true);
             longest_number = Get_Longest_Number_Length(intermediate_numbers, MAXIMUM_INTERMEDIATE_STEPS);
             string spaces = Generate_Spacing(longest_number, intermediate_numbers[i].length());
@@ -213,7 +213,6 @@ void Calculator:: Print_Multiplication(Number *array, int length_of_array, strin
             string spaces = Generate_Spacing(longest_number, intermediate_numbers[i].length());
             cout << spaces << intermediate_numbers[i] << "\n";
         }
-
     }
     cout << lines << "\n";
     cout << Generate_Spacing(longest_number, int(product.length())) << product << "\n";
